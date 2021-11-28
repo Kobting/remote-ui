@@ -1,0 +1,45 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.30'
+    id 'maven-publish'
+    id 'java'
+    id 'java-library'
+    id 'com.google.devtools.ksp' version '1.5.30-1.0.0'
+}
+
+group 'com.github.kobting.remoteui'
+version '0.0.10'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+    implementation 'com.github.kobting.remoteui:definitions-processor:0.0.2'
+    ksp(implementation('com.github.kobting.remoteui:definitions-processor:0.0.2'))
+}
+
+ksp {
+    arg("version_key", "v1")
+    arg("package_key", "com.github.kobting.remoteui.serialization")
+}
+
+kotlin {
+    sourceSets.main {
+        kotlin.srcDir("build/generated/ksp/main/kotlin")
+    }
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}

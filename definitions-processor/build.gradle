@@ -1,0 +1,38 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30'
+    id 'maven-publish'
+}
+
+group 'com.github.kobting.remoteui'
+version '0.0.2'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+    implementation("com.squareup:kotlinpoet:1.9.0") {
+        exclude group: 'kotlin-reflect', module: 'kotlin-reflect'
+    }
+    implementation "com.google.devtools.ksp:symbol-processing-api:1.5.30-1.0.0"
+}
+
+sourceSets.main {
+    java.srcDirs("src/main/kotlin")
+}
+
+sourceSets.test {
+    java.srcDirs("src/test/kotlin")
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
