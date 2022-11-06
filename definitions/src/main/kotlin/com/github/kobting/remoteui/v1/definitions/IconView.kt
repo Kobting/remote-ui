@@ -6,10 +6,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @com.github.kobting.remoteui.processor.annotations.View
-class Card(
-    val content: View,
-    val title: String = "",
-    val subhead: String = "",
-    val icon: Icon? = null,
-    override val properties: ViewProperties = ViewProperties(),
+data class IconView(
+    val icon: Icon,
+    override val properties: ViewProperties = ViewProperties()
 ): View()

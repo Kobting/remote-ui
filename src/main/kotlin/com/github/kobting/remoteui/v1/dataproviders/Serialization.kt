@@ -5,6 +5,7 @@ import kotlinx.serialization.modules.plus
 
 val viewJSONSerializer = Json {
     encodeDefaults = true
+    ignoreUnknownKeys = true
     isLenient = true
     allowSpecialFloatingPointValues = true
     allowStructuredMapKeys = true

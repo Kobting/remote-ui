@@ -11,12 +11,5 @@ open class AppBar(
     open val navigationOnClick: OnClick = OnClick.NONE,
     open val actionItems: List<ActionItem> = emptyList(),
     open val position: Position = Position.TOP,
-    override val accessibility: String = "",
-    override val paddingTop: Int = 0,
-    override val paddingBottom: Int = 0,
-    override val paddingLeft: Int = 0,
-    override val paddingRight: Int = 0,
-    override val onClick: OnClick = OnClick.NONE,
-    override val backgroundColor: String = "",
-    override val size: Size = Size(Size.MAX, Size.MAX)
+    override val properties: ViewProperties = ViewProperties(),
 ) : View()

@@ -3,8 +3,14 @@ package com.github.kobting.remoteui.v1.dataproviders
 import com.github.kobting.remoteui.utils.getResourceAsFile
 import com.github.kobting.remoteui.v1.responses.Page
 import java.io.File
+import java.util.logging.Level
+import java.util.logging.Logger
 
 class FilePageProvider(pageDirectory: String): PageProvider {
+
+    companion object {
+        private val logger = Logger.getLogger("FilePageProvider")
+    }
 
     private val pageDirectory = File(pageDirectory)
 
@@ -15,6 +21,7 @@ class FilePageProvider(pageDirectory: String): PageProvider {
             return null
         }
         val views = pageText.toViews()
+        logger.log(Level.INFO, "Views for ${pageDirectory}/${pageName}: $pageText")
         return Page(pageName = pageName, views = views)
     }
 

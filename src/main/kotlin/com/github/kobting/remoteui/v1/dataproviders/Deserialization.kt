@@ -12,6 +12,7 @@ fun String.toViews(): List<View> {
     return try {
         viewJSONSerializer.decodeFromString(this)
     } catch (ex: SerializationException) {
+        ex.printStackTrace()
         return emptyList()
     }
 }
