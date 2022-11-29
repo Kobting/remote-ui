@@ -6,7 +6,7 @@ import java.io.File
 import java.util.logging.Level
 import java.util.logging.Logger
 
-class FilePageProvider(pageDirectory: String): PageProvider {
+class FilePageProvider(pageDirectory: String = ""): PageProvider {
 
     companion object {
         private val logger = Logger.getLogger("FilePageProvider")
@@ -34,7 +34,7 @@ class FilePageProvider(pageDirectory: String): PageProvider {
     }
 
     private fun createPageFile(pageName: String): File? {
-        return getResourceAsFile("${pageDirectory.path}${File.separator}$pageName.json")
+        return getResourceAsFile("${pageDirectory.path}${File.separator}$pageName.page")
     }
 
 }

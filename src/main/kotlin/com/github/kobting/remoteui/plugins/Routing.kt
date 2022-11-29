@@ -15,7 +15,7 @@ fun Application.configureRouting() {
             call.respondText("Hello World!")
         }
         route("/v1") {
-            pageRouting(ManualPageProvider(), FilePageProvider("home"), FilePageProvider("settings"))
+            pageRouting(ManualPageProvider(), FilePageProvider())
         }
         //pageRouting()
     }

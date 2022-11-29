@@ -41,7 +41,7 @@ fun Route.pageRouting(vararg pageProviders: PageProvider) {
     }
 }
 
-//                    val pageFile = getResourceAsFile("testpage.json")
+//                    val pageFile = getResourceAsFile("testpage.page")
 //                    println(pageFile.readText())
 //                    val views = pageFile.readText().toViews()
 //                    val page = appPages.find { it.pageName == paramValue } ?: return@get call.respond(
